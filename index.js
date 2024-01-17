@@ -1,1 +1,1 @@
-console.log('Hello, JavaScript!');
+const calorieCounter = document.getElementById('calorie-counter');
