@@ -40,7 +40,7 @@ function addEntry() {
       id="${entryDropdown.value}-${entryNumber}-calories"
       placeholder="Calories"
     />`;
-    targetInputContainer.innerHTML += HTMLString
+    targetInputContainer.insertAdjacentHTML();
 
   }
 
