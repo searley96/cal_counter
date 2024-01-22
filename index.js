@@ -50,6 +50,8 @@ addEntryButton.addEventListener("click", addEntry);
 
 calorieCounter.addEventListener("submit", calculateCalories);
 
+clearButton.addEventListener("click", clearForm);
+
 function getCaloriesFromInputs(list) {
   let calories = 0;
 
@@ -68,10 +70,11 @@ function getCaloriesFromInputs(list) {
 }
 
 function calculateCalories(e) {
-  e.preventDfault();
+  e.preventDefault();
   isError = false;
+
   const breakfastNumberInputs = document.querySelectorAll(
-    `#breakfast input[type=number]`
+    "#breakfast input[type=number]"
   );
   const lunchNumberInputs = document.querySelectorAll(
     "#lunch input[type=number]"
@@ -96,23 +99,38 @@ function calculateCalories(e) {
   if (isError) {
     return;
   }
+
   const consumedCalories =
     breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
-
   const remainingCalories =
     budgetCalories - consumedCalories + exerciseCalories;
-
   const surplusOrDeficit = remainingCalories >= 0 ? "Surplus" : "Deficit";
-
   output.innerHTML = `
-  <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(
+    <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(
     remainingCalories
   )} Calorie ${surplusOrDeficit}</span>
-  <hr></hr>
-  <p>${budgetCalories} Calories Budgeted</p>
-  <p>${budgetCalories} Calories Budgeted</p>
-  <p>${consumedCalories} Calories Consumed</p>
-  <p>${exerciseCalories} Calories Burned</p>
-  <output.classList.remove('hide')></output>
-  `;
+    <hr>
+    <p>${budgetCalories} Calories Budgeted</p>
+    <p>${consumedCalories} Calories Consumed</p>
+    <p>${exerciseCalories} Calories Burned</p>
+    `;
+
+  output.classList.remove("hide");
+}
+
+//wrap query selector in array.from to return array and not NodeList
+//create loop to go iterate through inputContainers array
+//inside loop, set innerHTML property of the element at the current index to an empty string to clear contents of input container
+//after loop completes, set budgetNumber value to empty string
+//clear output element text
+//restore hide class to output element
+function clearForm() {
+  const inputContainers = Array.from(
+    document.querySelectorAll(".input-container")
+  );
+  for (let i = 0; i < inputContainers.length; i++) {
+    inputContainers[i].innerHTML = "";
+  }
+  budgetNumberInput.value = "";
+  output.innerText = "";
 }
