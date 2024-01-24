@@ -1,39 +1,47 @@
-:root {
-  --light-grey: #f5f6f7;
-  --dark-blue: #0a0a23;
-  --fcc-blue: #1b1b32;
-  --light-yellow: #fecc4c;
-  --dark-yellow: #feac32;
-  --light-pink: #ffadad;
-  --dark-red: #850000;
-  --light-green: #acd157;
+body {
+  font-family:"MarkWeb", "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 15px;
+  padding-top: 5px;
+  background: rgba(255, 157, 87, 1.0);
+  background: linear-gradient(135deg, rgba(255, 35, 68, 1.0), rgba(255, 157, 87, 1.0));
+  background-attachment: fixed;
 }
 
-body {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  background-color: var(--fcc-blue);
-  color: var(--light-grey);
-}
+
 
 h1 {
-  text-align: center;
+  text-align: left;
+  font-size: 45px;
+  margin-left: 180px;
+  padding-bottom: 25px;
+  color:white;
+  letter-spacing: 4px;
 }
 
 .container {
+  
   width: 90%;
   max-width: 680px;
+  margin: 20px auto;
+  height: 100px;
+  background-color: white;
 }
 
-h1,
-.container,
+ h1,
 .output {
-  margin: 20px auto;
+  margin-bottom: 20px;
+}
+
+#calorie-counter {
+  background-color: white;
+padding: 20px;
+
 }
 
 label,
 legend {
-  font-weight: bold;
+  font-size: 20px;
+  color: rgba(255, 35, 68, 1.0);
 }
 
 .input-container {
@@ -41,29 +49,37 @@ legend {
   flex-direction: column;
 }
 
+.add-entry {
+align-items: center;
+padding-left: 50px;
+}
+
 button {
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  background-color: var(--light-yellow);
-  border: 2px solid var(--dark-yellow);
+    background-color: rgba(255, 35, 68, 1.0); 
+    color: white; /* White text color */
+    padding: 8px 15px; /* Adjust padding for size */
+    border: 2px solid white;
+    cursor: pointer; /* Changes cursor to pointer when button is hovered */
+    margin: 5px;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight:600;
+    letter-spacing: .5px;
+    display: inline-block;
+    align-items: center;
+  }
+  
+
+button:hover {
+  background-color: rgb(250, 102, 124);
 }
 
 .clear {
-  background-color: var(--light-pink);
-  color: var(--dark-red);
-  border-color: var(--dark-red);
+  background-color: var(--background-orange);
+  color: var(--accent-red);
+  border-color: var(--accent-red);
 }
 
-button,
-input,
-select {
-  min-height: 24px;
-  color: var(--dark-blue);
-}
-
-fieldset,
-label,
 button,
 input,
 select {
@@ -71,7 +87,7 @@ select {
 }
 
 .output {
-  border: 2px solid var(--light-grey);
+  border: 2px solid var(--background-orange);
   padding: 10px;
   text-align: center;
 }
@@ -86,9 +102,9 @@ select {
 }
 
 .surplus {
-  color: var(--light-green);
+  color:rgb(187, 244, 130);
 }
 
 .deficit {
-  color: var(--light-pink);
+  color: var(--accent-red);
 }
