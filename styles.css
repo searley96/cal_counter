@@ -10,12 +10,14 @@ body {
 
 
 h1 {
-  text-align: left;
+  /* text-align: center; */
   font-size: 45px;
-  margin-left: 180px;
   padding-bottom: 25px;
   color:white;
   letter-spacing: 4px;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  padding-left: 375px;
 }
 
 .container {
